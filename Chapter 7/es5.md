@@ -1,6 +1,6 @@
 `sumsqreven = compose [sum, map (^2), filter even]`
 
-It is invalid because of the types. In fact, the compose type signature is
+It is invalid because of the types. In fact, the `compose` type signature is
 `compose :: [a -> a] -> (a -> a)`, where `a` must be the same in every function.
 But the functions' type signatures are:
 
