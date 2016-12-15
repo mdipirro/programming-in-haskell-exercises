@@ -56,7 +56,8 @@ variables in the proposition and return True iff the proposition is true for
 each configuration (we say that the proposition is a tautology).
 -}
 solutions :: Prop -> [[(Char, Bool)]] -> Bool
-solutions p ts =  and [evaluate p t | t <- ts]
+solutions p = foldl (evaluate.&&) True
+--and [evaluate p t | t <- ts] this is using list comprehension
                   where evaluate (Const b) _      = b
                         evaluate (Var v) ts       = find v ts
                                                     where find _ [] = False
